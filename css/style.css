@@ -1,0 +1,229 @@
+/*=====================CSS RESET START======================*/
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/*=====================CSS RESET END======================*/
+/*=====================COMMON STYLES START======================*/
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+a {
+  display: inline-flex;
+  text-decoration: none;
+  color: inherit;
+}
+html {
+  scroll-behavior: smooth;
+}
+body{
+    line-height: 1.5;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 18px;
+}
+button{
+    font: inherit;
+    color: inherit;
+    border: 0;
+    padding: 0;
+    display: inline-flex;
+    background: none;
+    cursor: pointer;
+}
+.container{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+
+.main{
+    margin-top: 20px;
+}
+.main__container{
+    display: flex;
+    justify-content: space-between;
+}
+.filter{
+    width: 25%;
+}
+.showcase{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.card{
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #000;
+}
+.card__img{
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    margin-right: 15px;
+}
+.card__body{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.card-body__title{
+    font-size: 18px;
+    line-height: 1.2;
+    color: #256799;
+}
+.card-body__price{
+    font-size: 22px;
+    color: #3c9806;
+}
+.card-body__characteristic{
+    display: flex;
+}
+.card__characteristic:nth-child(n + 1) {
+    margin-right: 25px;
+  }
+.card__characteristic{
+    font-size: 15px;
+}
+.card-body__vin{
+    width: 205px;
+    border: 1px solid #256799;
+    font-size: 13px;
+    padding: 5px;
+    margin-bottom: 30px;
+}
+.card-body__timestamp{
+    color: #9b9b9b;
+    font-size: 15px;
+    line-height: 20px;
+}
