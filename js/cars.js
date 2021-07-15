@@ -20,7 +20,7 @@ const DATA = `[
       "engine_volume": 1.4,
       "transmission": "CVT",
       "odo": 394036,
-      "consume": { "road": 4.8, "city": 12.3, "mixed": 8.4 }
+      "consume": null
     },
     {
       "id": "9e952900c4a6fc66d35f00eac9785d97d3c77234",
@@ -43,7 +43,7 @@ const DATA = `[
       "engine_volume": 2.7,
       "transmission": "AT",
       "odo": 160572,
-      "consume": { "road": 3.2, "city": 15.8, "mixed": 8.8 }
+      "consume": { "road": null, "city": 15.8, "mixed": 8.8 }
     },
     {
       "id": "303b3472b11d51c7d970108e3ec1a15476521ec3",
@@ -66,7 +66,7 @@ const DATA = `[
       "engine_volume": 1.6,
       "transmission": "CVT",
       "odo": 418116,
-      "consume": { "road": 5.4, "city": 10.6, "mixed": 9.2 }
+      "consume": { "road": 5.4}
     },
     {
       "id": "a6f0abf06ec6059b434a6cf95741a4f8cc6b5f29",

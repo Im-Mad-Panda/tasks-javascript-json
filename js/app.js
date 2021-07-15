@@ -26,6 +26,12 @@ const showcaseEl = document.getElementById("showcase");
 //   }
 
 
+
+document.addEventListener('click', event => {
+  console.log(event);
+})
+
+
 renderCardShowcase(cars, showcaseEl);
 
 function renderCardShowcase(cardsDataArr, cardShowcaseEl) {
@@ -38,25 +44,44 @@ function createCardShowcaseHTML(cardsDataArr) {
 
 
 function createCardHTML(cardDataObj) {
+  let starsHTML = ''
+  for (let i = 0; i < 5; i++) {
+    if (cardDataObj.rating > i) {
+      starsHTML += '&#9733;'
+    } else{
+      starsHTML += '&#9734;'
+    }
+  }
   return `<div class="card">
     <img class="card__img" src="${cardDataObj.img}" alt="${cardDataObj.make} ${cardDataObj.model} ${cardDataObj.engine_volume}L (${cardDataObj.year})" width="1" height="1" loading="lazy" decoding="async">
     <div class="card__body">
         <h2 class="card-body__title">${cardDataObj.make} ${cardDataObj.model} ${cardDataObj.year} г.</h2>
         <h3 class="card-body__price">${cardDataObj.price} $</h3>
-        <div class="card-body__characteristic">
-        <ul class="card__characteristic">
-            <li>${cardDataObj.fuel} ${cardDataObj.engine_volume} л.</li>
-        </ul>
-          <ul class="card__characteristic">
-            <li>Трансмиссия: ${cardDataObj.transmission}</li>
-          </ul>
-        </div>
-        <h4 class="card-body__vin">Vin-код: ${cardDataObj.vin}</h4>
-        <p class="card-body__timestamp">
-
-        
-            </p>
-        
+        <h4 class="card-body__rating">${starsHTML} </h4>
+        <dl class="card__characteristics">
+          <div class="card__characteristic">
+            <dt>Трансмиссия:</dt>
+            <dd>${cardDataObj.transmission}</dd>
+          </div>
+          <div class="card__characteristic">
+            <dt>Volume:</dt>
+            <dd>${cardDataObj.engine_volume} L</dd>
+          </div>
+          <div class="card__characteristic">
+            <dt>Country:</dt>
+            <dd>${cardDataObj.country}</dd>
+          </div>
+          <div class="card__characteristic">
+            <dt>Odometr:</dt>
+            <dd>${cardDataObj.odo} km</dd>
+          </div>
+          <div class="card__characteristic">
+            <dt>Fuel:</dt>
+            <dd>${cardDataObj.fuel}</dd>
+          </div>
+        </dl>
+        ${cardDataObj.vin ? `<h4 class="card-body__vin">Vin-код: ${cardDataObj.vin}</h4>` : ''}
+        <p class="card-body__timestamp">${new Date(cardDataObj.timestamp).toLocaleString()}</p>
     </div>
 </div>`;
 }
@@ -71,3 +96,4 @@ function createCardHTML(cardDataObj) {
 // console.log(nums, incrementedNums);
 
 // <a href="tel:${cardDataObj.phone}" class="card-body__link">Call to seller</a>
+

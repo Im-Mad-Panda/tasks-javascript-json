@@ -184,6 +184,7 @@ button{
     display: flex;
     justify-content: space-between;
     border: 1px solid #000;
+    padding: 10px;
 }
 .card__img{
     width: 300px;
@@ -192,9 +193,10 @@ button{
     margin-right: 15px;
 }
 .card__body{
-    width: 70%;
+    flex: 1;
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     gap: 10px;
 }
 .card-body__title{
@@ -202,21 +204,29 @@ button{
     line-height: 1.2;
     color: #256799;
 }
+.card-body__rating{
+  color: rgb(199, 170, 6);
+  font-size: 24px;
+  font-weight: bold;
+}
 .card-body__price{
     font-size: 22px;
     color: #3c9806;
 }
-.card-body__characteristic{
+.card__characteristics{
     display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
 }
-.card__characteristic:nth-child(n + 1) {
-    margin-right: 25px;
-  }
 .card__characteristic{
-    font-size: 15px;
+  width: calc((100% - 10px) / 2);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
 }
+
 .card-body__vin{
-    width: 205px;
     border: 1px solid #256799;
     font-size: 13px;
     padding: 5px;
