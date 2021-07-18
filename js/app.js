@@ -10,7 +10,7 @@ const showcaseEl = document.getElementById("showcase");
 //     "color": "Goldenrod",
 //     "vin": "1G6DW677550624991",
 //     "country": "United States",
-//     "rating": 1,
+//     "rating": 4.5,
 //     "price": 2269,
 //     "views": 5,
 //     "seller": "Ellery Girardin",
@@ -25,12 +25,9 @@ const showcaseEl = document.getElementById("showcase");
 //     "consume": { "road": 4.8, "city": 12.3, "mixed": 8.4 }
 //   }
 
-
-
-document.addEventListener('click', event => {
+document.addEventListener("click", (event) => {
   console.log(event);
-})
-
+});
 
 renderCardShowcase(cars, showcaseEl);
 
@@ -42,20 +39,27 @@ function createCardShowcaseHTML(cardsDataArr) {
   return cardsDataArr.map((cardDataObj) => createCardHTML(cardDataObj));
 }
 
-
 function createCardHTML(cardDataObj) {
-  let starsHTML = ''
+  let starsHTML = "";
   for (let i = 0; i < 5; i++) {
     if (cardDataObj.rating > i) {
-      starsHTML += '&#9733;'
-    } else{
-      starsHTML += '&#9734;'
+      starsHTML += "&#9733;";
+    } else if (cardDataObj.rating > i / 0.5) {
+      starsHTML += "&#11240;";
+    } else {
+      starsHTML += "&#9734;";
     }
   }
   return `<div class="card">
-    <img class="card__img" src="${cardDataObj.img}" alt="${cardDataObj.make} ${cardDataObj.model} ${cardDataObj.engine_volume}L (${cardDataObj.year})" width="1" height="1" loading="lazy" decoding="async">
+    <img class="card__img" src="${cardDataObj.img}" alt="${cardDataObj.make} ${
+    cardDataObj.model
+  } ${cardDataObj.engine_volume}L (${
+    cardDataObj.year
+  })" width="1" height="1" loading="lazy" decoding="async">
     <div class="card__body">
-        <h2 class="card-body__title">${cardDataObj.make} ${cardDataObj.model} ${cardDataObj.year} г.</h2>
+        <h2 class="card-body__title">${cardDataObj.make} ${cardDataObj.model} ${
+    cardDataObj.year
+  } г.</h2>
         <h3 class="card-body__price">${cardDataObj.price} $</h3>
         <h4 class="card-body__rating">${starsHTML} </h4>
         <dl class="card__characteristics">
@@ -64,28 +68,50 @@ function createCardHTML(cardDataObj) {
             <dd>${cardDataObj.transmission}</dd>
           </div>
           <div class="card__characteristic">
-            <dt>Volume:</dt>
+            <dt>Объем двигателя:</dt>
             <dd>${cardDataObj.engine_volume} L</dd>
           </div>
           <div class="card__characteristic">
-            <dt>Country:</dt>
+            <dt>Страна:</dt>
             <dd>${cardDataObj.country}</dd>
           </div>
           <div class="card__characteristic">
-            <dt>Odometr:</dt>
+            <dt>Пробег:</dt>
             <dd>${cardDataObj.odo} km</dd>
           </div>
           <div class="card__characteristic">
-            <dt>Fuel:</dt>
+            <dt>Топливо:</dt>
             <dd>${cardDataObj.fuel}</dd>
           </div>
+          <div class="card__characteristic">
+            <dt>Цвет:</dt>
+            <dd>${cardDataObj.color}</dd>
+          </div>
+          <div class="card__characteristic">
+            <dt>Страна:</dt>
+            <dd>${cardDataObj.country}</dd>
+          </div>
+          <div class="card__characteristic">
+            <dt>Расход:</dt>
+            <dd>${cardDataObj.consume}</dd>
+          </div>
         </dl>
-        ${cardDataObj.vin ? `<h4 class="card-body__vin">Vin-код: ${cardDataObj.vin}</h4>` : ''}
-        <p class="card-body__timestamp">${new Date(cardDataObj.timestamp).toLocaleString()}</p>
+        
+        ${
+          cardDataObj.vin
+            ? `<h4 class="card-body__vin">Vin-код: ${cardDataObj.vin}</h4>`
+            : ""
+        }
+        <div class="card-body__stats">
+        <p class="card-body__timestamp">${new Date(
+          cardDataObj.timestamp
+        ).toLocaleString()}</p>
+        <p class="card-body__views">Просмотров: ${
+          cardDataObj.views}</p>
+          </div>
     </div>
 </div>`;
 }
-
 
 //  const nums = [1,2,3]
 
@@ -96,4 +122,3 @@ function createCardHTML(cardDataObj) {
 // console.log(nums, incrementedNums);
 
 // <a href="tel:${cardDataObj.phone}" class="card-body__link">Call to seller</a>
-

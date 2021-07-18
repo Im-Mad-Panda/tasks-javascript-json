@@ -196,13 +196,12 @@ button{
     flex: 1;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
     gap: 10px;
 }
 .card-body__title{
-    font-size: 18px;
+    font-size: 20px;
     line-height: 1.2;
-    color: #256799;
+    color: #1900ff;
 }
 .card-body__rating{
   color: rgb(199, 170, 6);
@@ -217,6 +216,7 @@ button{
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+    margin-bottom: 15px;
 }
 .card__characteristic{
   width: calc((100% - 10px) / 2);
@@ -226,12 +226,17 @@ button{
 }
 
 .card-body__vin{
-    border: 1px solid #256799;
-    font-size: 13px;
+  color: #00aeff;
+    font-size: 18px;
     padding: 5px;
     margin-bottom: 30px;
 }
-.card-body__timestamp{
+.card-body__stats{
+  display: flex;
+  justify-content: space-between;
+
+}
+.card-body__timestamp, .card-body__views{
     color: #9b9b9b;
     font-size: 15px;
     line-height: 20px;
