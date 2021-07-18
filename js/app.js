@@ -44,7 +44,7 @@ function createCardHTML(cardDataObj) {
   for (let i = 0; i < 5; i++) {
     if (cardDataObj.rating > i) {
       starsHTML += "&#9733;";
-    } else if (cardDataObj.rating > i / 0.5) {
+    } else if (cardDataObj.rating < i) {
       starsHTML += "&#11240;";
     } else {
       starsHTML += "&#9734;";
