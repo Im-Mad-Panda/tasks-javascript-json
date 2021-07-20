@@ -226,9 +226,14 @@ button{
 }
 
 .card-body__vin{
-  color: #00aeff;
     font-size: 18px;
     margin-bottom: 30px;
+}
+.card-body__vin.checked{
+  color: green;
+}
+.card-body__vin.unchecked{
+  color: #777;
 }
 .card-body__stats{
   display: flex;

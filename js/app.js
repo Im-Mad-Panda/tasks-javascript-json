@@ -25,9 +25,6 @@ const showcaseEl = document.getElementById("showcase");
 //     "consume": { "road": 4.8, "city": 12.3, "mixed": 8.4 }
 //   }
 
-document.addEventListener("click", (event) => {
-  console.log(event);
-});
 
 renderCardShowcase(cars, showcaseEl);
 
@@ -42,16 +39,17 @@ function createCardShowcaseHTML(cardsDataArr) {
 function createCardHTML(cardDataObj) {
   let starsHTML = "";
   for (let i = 0; i < 5; i++) {
-    if (cardDataObj.rating > i) {
-      starsHTML += "&#9733;";
+    if (cardDataObj.rating > i + 0.5) {
+      starsHTML += `<i class="fas fa-star"></i>`;
     } 
-    else if (cardDataObj.rating - i) {
-      starsHTML += "&#11240;";
+    else if (cardDataObj.rating == i + 0.5) {
+      starsHTML += `<i class="fas fa-star-half-alt"></i>`;
     } 
     else {
-      starsHTML += "&#9734;";
+      starsHTML += `<i class="far fa-star"></i>`;
     }
   }
+  
   return `<div class="card">
     <img class="card__img" src="${cardDataObj.img}" alt="${cardDataObj.make} ${
     cardDataObj.model
@@ -93,21 +91,34 @@ function createCardHTML(cardDataObj) {
             <dt>Страна:</dt>
             <dd>${cardDataObj.country}</dd>
           </div>
-          <div class="card__characteristic">
-            <dt>Расход:</dt>
-            <dd>${cardDataObj.consume}</dd>
-          </div>
+          
         </dl>
-        
+        <div>
+            <h4>Расход:</h4>
+              <dl>
+              <div class="card__characteristic">
+                <dt>Road:</dt>
+                <dd>${cardDataObj.consume?.road || '???'} L/100km</dd>
+              </div>
+              <div class="card__characteristic">
+                <dt>City:</dt>
+                <dd>${cardDataObj.consume?.city || '???'} L/100km</dd>
+              </div>
+              <div class="card__characteristic">
+                <dt>Mixed:</dt>
+                <dd>${cardDataObj.consume?.mixed || '???'} L/100km</dd>
+              </div>
+              </dl>
+          </div>
         ${
           cardDataObj.vin
-            ? `<h4 class="card-body__vin">Vin-код: ${cardDataObj.vin}</h4>`
+            ? `<h4 class="card-body__vin ${cardDataObj.vin_check ? `checked` : `unchecked`}">${cardDataObj.vin_check ? `<i class="fas fa-check-circle"></i>` : `<i class="fas fa-times-circle"></i>`} Vin-код: ${cardDataObj.vin}</h4>`
             : ""
         }
         <div class="card-body__stats">
         <p class="card-body__timestamp">${new Date(
           cardDataObj.timestamp
-        ).toLocaleString()}</p>
+        ).toLocaleDateString()}</p>
         <p class="card-body__views">Просмотров: ${
           cardDataObj.views}</p>
           </div>
@@ -124,3 +135,31 @@ function createCardHTML(cardDataObj) {
 // console.log(nums, incrementedNums);
 
 // <a href="tel:${cardDataObj.phone}" class="card-body__link">Call to seller</a>
+
+
+
+// document.addEventListener('click', () => {
+//   console.log('document Click');
+// })
+
+showcaseEl.addEventListener('click', (event) => {
+  const imageEl = event.target.closest('.card__img')
+  if (imageEl) {
+    console.log('Image click');
+  }
+})
+
+// const cardImages = document.querySelectorAll('.card__img')
+// console.log(cardImages);
+// cardImages.forEach((image) => {
+//   image.addEventListener('click', () => {
+//     console.log('Click on image');
+//   })
+// })
+
+const formEl = document.getElementById('form')
+
+form.addEventListener('submit', event => {
+  event.preventDefault()
+  console.log('Submit');
+})
