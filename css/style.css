@@ -250,6 +250,11 @@ button{
     font-size: 15px;
     line-height: 20px;
 }
-.card-body__top{
+.card__top{
+  font-size: 18px;
   color: #4fd800;
+  padding: 10px;
+}
+.card-body-top{
+  position: absolute;
 }

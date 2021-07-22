@@ -51,19 +51,21 @@ function createCardHTML(cardDataObj) {
   }
   
   return `<div class="card">
+
+  
     <img class="card__img" src="${cardDataObj.img}" alt="${cardDataObj.make} ${
     cardDataObj.model
   } ${cardDataObj.engine_volume}L (${
     cardDataObj.year
   })" width="1" height="1" loading="lazy" decoding="async">
 
-
+  <div class="card-body-top">
   ${
     cardDataObj.top
-      ? `<p class="card-body__top ${cardDataObj.top ? `top` : `untop`}">${cardDataObj.top ? `<i class="fas fa-certificate"></i>` : ``}</p>`
+      ? `<p class="card__top ${cardDataObj.top ? `top` : `untop`}">Топ ${cardDataObj.top ? `<i class="fas fa-certificate"></i>` : ``}</p>`
       : ""
   }
-
+</div>
 
     <div class="card__body">
         <h2 class="card-body__title">${cardDataObj.make} ${cardDataObj.model} ${
