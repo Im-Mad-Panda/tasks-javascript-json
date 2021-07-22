@@ -56,6 +56,15 @@ function createCardHTML(cardDataObj) {
   } ${cardDataObj.engine_volume}L (${
     cardDataObj.year
   })" width="1" height="1" loading="lazy" decoding="async">
+
+
+  ${
+    cardDataObj.top
+      ? `<p class="card-body__top ${cardDataObj.top ? `top` : `untop`}">${cardDataObj.top ? `<i class="fas fa-certificate"></i>` : ``}</p>`
+      : ""
+  }
+
+
     <div class="card__body">
         <h2 class="card-body__title">${cardDataObj.make} ${cardDataObj.model} ${
     cardDataObj.year
@@ -96,17 +105,17 @@ function createCardHTML(cardDataObj) {
         <div>
             <h4>Расход:</h4>
               <dl>
-              <div class="card__characteristic">
+              <div class="card__characteristic-consume">
                 <dt>Road:</dt>
-                <dd>${cardDataObj.consume?.road || '???'} L/100km</dd>
+                <dd>${cardDataObj.consume?.road || `<i class="fas fa-minus"></i> `} L/100km</dd>
               </div>
-              <div class="card__characteristic">
+              <div class="card__characteristic-consume">
                 <dt>City:</dt>
-                <dd>${cardDataObj.consume?.city || '???'} L/100km</dd>
+                <dd>${cardDataObj.consume?.city || '<i class="fas fa-minus"></i> '} L/100km</dd>
               </div>
-              <div class="card__characteristic">
+              <div class="card__characteristic-consume">
                 <dt>Mixed:</dt>
-                <dd>${cardDataObj.consume?.mixed || '???'} L/100km</dd>
+                <dd>${cardDataObj.consume?.mixed || '<i class="fas fa-minus"></i> '} L/100km</dd>
               </div>
               </dl>
           </div>

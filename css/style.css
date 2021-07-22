@@ -218,13 +218,18 @@ button{
     gap: 10px;
     margin-bottom: 15px;
 }
+.card__characteristic-consume{
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
 .card__characteristic{
   width: calc((100% - 10px) / 2);
   display: flex;
   align-items: flex-start;
   gap: 20px;
 }
-
 .card-body__vin{
     font-size: 18px;
     margin-bottom: 30px;
@@ -232,7 +237,7 @@ button{
 .card-body__vin.checked{
   color: green;
 }
-.card-body__vin.unchecked{
+.card-body__vin.unchecked, .fa-minus{
   color: #777;
 }
 .card-body__stats{
@@ -244,4 +249,7 @@ button{
     color: #9b9b9b;
     font-size: 15px;
     line-height: 20px;
+}
+.card-body__top{
+  color: #4fd800;
 }
