@@ -10,12 +10,29 @@
   </head>
   <body>
     <header class="header">
-      <div class="container">topbar</div>
+      <div class="container">
+        <select id="sortSelect">
+          <option value="" disabled selected>Сортировать по...</option>
+          <option value="price/-1">От дорогих к дешёвым</option>
+          <option value="price/1">От дешёвых к дорогим</option>
+          <option value="year/-1">Год выпуска, по убыванию</option>
+          <option value="year/1">Год выпуска, по возрастанию</option>
+          <option value="rating/-1">Рейтинг, по убыванию</option>
+          <option value="rating/1">Рейтинг, по возрастанию</option>
+          <option value="odo/-1">Пробег, по убыванию</option>
+          <option value="odo/1">Пробег, по возрастанию</option>
+          <option value="top/-1">Сначала в топе</option>
+          <option value="top/1">Сначала обычные</option>
+          <option value="make/1">Производитель, по А-Я</option>
+          <option value="make/-1">Производитель, по Я-А</option>
+        </select>
+        <form id="searchForm">
+          <input type="search" name="search" placeholder="Поиск...">
+          <button type="submit">Искать</button>
+        </form>
+      </div>
     </header>
     <main class="main">
-      <form id="form">
-        <input type="text">
-      </form>
       <div class="container main__container">
         <aside class="filter">filter</aside>
         <section class="showcase" id="showcase">
