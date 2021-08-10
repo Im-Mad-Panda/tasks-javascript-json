@@ -191,6 +191,7 @@ border-radius: 8px;
     font-size: 17px;
     line-height: 30px;
     border-radius: 8px;
+    margin-left: 10px;
 }
 .button-serch:hover{
 background-color: #34cf53;
