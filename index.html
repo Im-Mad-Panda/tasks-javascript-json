@@ -11,7 +11,8 @@
   <body>
     <header class="header">
       <div class="container">
-        <select id="sortSelect">
+        <div class="field-area">
+        <select class="area-select" id="sortSelect">
           <option value="" disabled selected>Сортировать по...</option>
           <option value="price/-1">От дорогих к дешёвым</option>
           <option value="price/1">От дешёвых к дорогим</option>
@@ -26,18 +27,19 @@
           <option value="make/1">Производитель, по А-Я</option>
           <option value="make/-1">Производитель, по Я-А</option>
         </select>
-        <form id="searchForm">
-          <input type="search" name="search" placeholder="Поиск...">
-          <button type="submit">Искать</button>
+        <form class="area-form" id="searchForm">
+          <input  type="search" name="search" placeholder="Поиск...">
+          <button class="button-serch" type="submit">Искать</button>
         </form>
+      </div>
       </div>
     </header>
     <main class="main">
       <div class="container main__container">
-        <aside class="filter">filter</aside>
         <section class="showcase" id="showcase">
           
         </section>
+        <aside class="filter">filter</aside>
       </div>
     </main>
     <script src="./js/cars.js"></script>

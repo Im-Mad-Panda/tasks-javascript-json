@@ -162,10 +162,41 @@ button{
     margin: 0 auto;
     padding: 0 15px;
 }
-
-
+.field-area{
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+.area-select {
+  padding: 5px 10px;
+border: 0.8px solid #afb0b9;
+border-radius: 8px;
+}
+.area-select > option{
+  color: #1900ff;
+}
+.area-form > input{
+  padding: 10px 10px;
+border: 0.8px solid #000000;
+border-radius: 8px;
+}
+.button-serch{
+  color: #fff;
+  background-color:#238636;
+  border: 2px solid #34cf53;
+  text-shadow: 0.2px 0.2px 0px, -0.2px -0.2px 0px;    
+    padding: 5px 10px;
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 30px;
+    border-radius: 8px;
+}
+.button-serch:hover{
+background-color: #34cf53;
+}
 .main{
-    margin-top: 20px;
+    padding-top: 10px;
 }
 .main__container{
     display: flex;
@@ -185,6 +216,7 @@ button{
     justify-content: space-between;
     border: 1px solid #000;
     padding: 10px;
+    border-radius: 8px;
 }
 .card__img{
     width: 300px;
