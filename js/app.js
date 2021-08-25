@@ -29,12 +29,20 @@ const searchFormEl = document.getElementById('searchForm')
 
 searchFormEl.addEventListener('submit', event => {
   event.preventDefault()
-  console.log(event.target);
-  console.log(event.target.search);
-  console.log(event.target.search.value);
+  // console.log(event.target);
+  // console.log(event.target.search);
+  // console.log(event.target.search.value);
   const query = event.target.search.value.trim().toLowerCase().split(' ').filter(word => !!word)
-
   console.log(query);
+  const searchFields = ["make", "model", "year", "seller"]
+  const filteredCars = cars.filter(car => {
+    return query.every(word => {
+      return searchFields.some(field => {
+        return String(car[field]).toLowerCase().includes(word)
+      })
+    })
+  })
+  console.table(filteredCars);
 })
 
 
@@ -211,3 +219,6 @@ function createCardHTML(cardDataObj) {
 // })
 
 // console.log(moreThanZero);
+
+
+

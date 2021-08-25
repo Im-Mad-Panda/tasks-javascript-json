@@ -170,21 +170,21 @@ button{
 }
 .area-select {
   padding: 5px 10px;
-  border: 2px solid #232323;
+border: 0.8px solid #afb0b9;
 border-radius: 8px;
 }
 .area-select > option{
   color: #1900ff;
 }
 .area-form > input{
-  padding: 12px 10px;
-  border: 2px solid #232323;
+  padding: 10px 10px;
+border: 0.8px solid #000000;
 border-radius: 8px;
 }
 .button-serch{
   color: #fff;
-    background: #232323;
-    border: 2px solid #232323;
+  background-color:#238636;
+  border: 2px solid #34cf53;
   text-shadow: 0.2px 0.2px 0px, -0.2px -0.2px 0px;    
     padding: 5px 10px;
     font-weight: 500;
@@ -194,8 +194,7 @@ border-radius: 8px;
     margin-left: 10px;
 }
 .button-serch:hover{
-  color: #232323;
-background-color: #fff;
+background-color: #34cf53;
 }
 .main{
     padding-top: 10px;
