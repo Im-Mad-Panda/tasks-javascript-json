@@ -2,6 +2,10 @@ const cars = JSON.parse(DATA);
 const showcaseEl = document.getElementById("showcase");
 const sortSelectEl = document.getElementById('sortSelect')
 const searchFormEl = document.getElementById('searchForm')
+const filterFormEl = document.getElementById('filterForm')
+const filterFields = ["make", "transmission", "fuel"]
+renderCardShowcase(cars, showcaseEl);
+renderFilterForm(cars, filterFormEl)
 // {
 //     "id": "89aed5b8c686ebd713a62873e4cd756abab7a106",
 //     "make": "BMW",
@@ -27,6 +31,20 @@ const searchFormEl = document.getElementById('searchForm')
 //   }
 
 
+filterFormEl.addEventListener('submit', event => {
+  event.preventDefault()
+  const query = filterFields.map(field => {
+    return Array.from(event.target[field]).filter(input => input.checked).map(input => input.value)
+  })
+  const filteredCars = cars.filter(car => {
+    return query.every((values, i) => {
+      return values.length > 0 ? values.includes(car[filterFields[i]]) : true
+    })
+  })
+  console.table(filteredCars);
+  renderCardShowcase(filteredCars, showcaseEl);
+})
+
 searchFormEl.addEventListener('submit', event => {
   event.preventDefault()
   // console.log(event.target);
@@ -34,7 +52,7 @@ searchFormEl.addEventListener('submit', event => {
   // console.log(event.target.search.value);
   const query = event.target.search.value.trim().toLowerCase().split(' ').filter(word => !!word)
   console.log(query);
-  const searchFields = ["make", "model", "year", "seller"]
+  const searchFields = ["make", "model", "year"]
   const filteredCars = cars.filter(car => {
     return query.every(word => {
       return searchFields.some(field => {
@@ -43,6 +61,7 @@ searchFormEl.addEventListener('submit', event => {
     })
   })
   console.table(filteredCars);
+  renderCardShowcase(filteredCars, showcaseEl);
 })
 
 
@@ -78,7 +97,58 @@ sortSelectEl.addEventListener('change', event => {
   renderCardShowcase(cars, showcaseEl);
 })
 
-renderCardShowcase(cars, showcaseEl);
+
+
+
+{/* <fieldset>
+  <legend>Make</legend>
+  <label>
+    <input type="checkbox" name="make" value="Audi">
+    Audi
+  </label>
+  <label>
+    <input type="checkbox" name="make" value="BMW">
+    BMW
+  </label>
+</fieldset> */}
+
+
+
+function renderFilterForm(cardsDataArr, filterFormEl) {
+  filterFormEl.firstElementChild.innerHTML = createFilterFieldsets(cardsDataArr).join("");
+}
+
+function createFilterFieldsets(cardsDataArr) {
+  return filterFields.map(field => {
+    const values = Array.from(new Set(cardsDataArr.map(cardDataObj => cardDataObj[field]))).sort()
+    return createFilterFieldset(field, values)
+  })
+}
+
+function createFilterFieldset(field, values) {
+  const labels = values.map((value) => createFilterCheckbox(field, value)).join('');
+  return `<fieldset>
+  <legend>${field}</legend>
+  ${labels}
+</fieldset>`
+}
+
+function createFilterCheckbox(field, value) {
+  return `<label>
+  <input type="checkbox" name="${field}" value="${value}">
+  ${value}
+</label>`
+}
+
+
+
+
+
+
+
+
+
+
 
 function renderCardShowcase(cardsDataArr, cardShowcaseEl) {
   cardShowcaseEl.innerHTML = createCardShowcaseHTML(cardsDataArr).join("");

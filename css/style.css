@@ -206,6 +206,33 @@ background-color: #34cf53;
 .filter{
     width: 25%;
 }
+.filter-form button{
+  background-color: green;
+  color: #fff;
+  padding: 15px 30px;
+  border-radius: 5px;
+}
+.fieldsets{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+.fieldsets>fieldset{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 1px solid #000;
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 20px;
+}
+.fieldsets legend{
+  padding: 0 10px;
+}
+.fieldsets input{
+  margin-right: 10px;
+}
 .showcase{
     width: 70%;
     display: flex;
