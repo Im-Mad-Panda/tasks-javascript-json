@@ -1,10 +1,10 @@
-const cars = JSON.parse(DATA);
+let cars = [];
 const showcaseEl = document.getElementById("showcase");
 const sortSelectEl = document.getElementById('sortSelect')
 const searchFormEl = document.getElementById('searchForm')
 const filterFormEl = document.getElementById('filterForm')
 const filterFields = ["make", "transmission", "fuel"]
-renderCardShowcase(cars, showcaseEl);
+
 renderFilterForm(cars, filterFormEl)
 // {
 //     "id": "89aed5b8c686ebd713a62873e4cd756abab7a106",
@@ -29,6 +29,23 @@ renderFilterForm(cars, filterFormEl)
 //     "odo": 394036,
 //     "consume": { "road": 4.8, "city": 12.3, "mixed": 8.4 }
 //   }
+
+getCars()
+
+async function getCars() {
+  try {
+    const response = await fetch('/data/cars.json');
+    if (response.ok) {
+        const json = await response.json();
+        cars = json
+        renderCardShowcase(cars, showcaseEl);
+    } else{
+        throw `Bad response! ${response.statusText} (${response.status})`
+    }
+  } catch (error) {
+    console.warn(error);
+  }
+}
 
 
 filterFormEl.addEventListener('submit', event => {
